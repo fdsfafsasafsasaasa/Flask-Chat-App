@@ -11,13 +11,16 @@
             <div class="messages" id="messages">
                 {% for message in messages %}
                     <div class="message">
-                        <p><small>{{message.date}}</small><b>{{message.user}}:</b> {{message.body}}</p>
+                        {{message.user}}: {{message.body}}
+                        <span><small>{{message.date}}</small></span>
                     </div>
                 {% endfor %}
             </div>
             <div class="messagebox" id="messagecontainer">
-                <p>Message: <input type="text" id="messagebox"></input></p>
-                <p><button onclick="sendmessage()" id="messagesend">Send Message</button></p>
+                <div id="messagecontainer2">
+                    <p>Message: <input type="text" id="messagebox"></input></p>
+                    <p><button type="submit", onclick="sendmessage()" id="messagesend">Send Message</button></p>
+                </div>
             </div>
         </div>
     </body>

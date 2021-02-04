@@ -4,10 +4,11 @@ socket.on('connect', function() {
 });
 
 function sendmessage(){
+    date = new Date()
     var messagebody = {
         "body": document.getElementById("messagebox").value,
         "user" : "fuck",
-        "date": new Date()
+        "date": date.toLocaleDateString("%I:%M")
     }
     console.log(messagebody)
     socket.emit("message_send", messagebody)
