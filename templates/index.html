@@ -1,0 +1,19 @@
+<script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+<input type="text" id="messagebox">Message:</input>
+<button onclick="sendmessage()" id="messagesend">Send Message<button>
+<script type="text/javascript" charset="utf-8">
+    var socket = io();
+    socket.on('connect', function() {
+        socket.emit('my event', {data: 'I\'m connected!'});
+    });
+
+    function sendmessage(){
+        var messagebody = {
+            "body": document.getElementById("messagebox").value,
+            "user" : "fuck"
+        }
+        socket.emit("message_send", messagebody)
+
+    };
+
+</script>
