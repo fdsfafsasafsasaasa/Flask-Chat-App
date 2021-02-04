@@ -1,19 +1,24 @@
-<script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
-<input type="text" id="messagebox">Message:</input>
-<button onclick="sendmessage()" id="messagesend">Send Message<button>
-<script type="text/javascript" charset="utf-8">
-    var socket = io();
-    socket.on('connect', function() {
-        socket.emit('my event', {data: 'I\'m connected!'});
-    });
-
-    function sendmessage(){
-        var messagebody = {
-            "body": document.getElementById("messagebox").value,
-            "user" : "fuck"
-        }
-        socket.emit("message_send", messagebody)
-
-    };
-
-</script>
+<html>
+    <head>
+        <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+        <script src="../static/index.js"></script>
+        <link href="../static/index.css" rel='stylesheet'></link>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="messages" id="messages">
+                {% for message in messages %}
+                    <div class="message">
+                        <p><small>{{message.date}}</small><b>{{message.user}}:</b> {{message.body}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="messagebox" id="messagecontainer">
+                <p>Message: <input type="text" id="messagebox"></input></p>
+                <p><button onclick="sendmessage()" id="messagesend">Send Message</button></p>
+            </div>
+        </div>
+    </body>
+</html>

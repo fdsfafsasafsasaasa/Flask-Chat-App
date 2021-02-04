@@ -1,0 +1,14 @@
+body {
+    overflow: scroll;
+}
+#container {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+}
+#messagecontainer {
+    position : relative;
+    bottom : 0;
+}
