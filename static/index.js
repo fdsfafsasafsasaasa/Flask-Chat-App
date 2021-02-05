@@ -1,14 +1,10 @@
 var socket = io();
 
 function sendmessage(){
-    date = new Date()
-    if(document.getElementById("messagebox").value == null){
-        return
-    }
     var messagebody = {
         "body": document.getElementById("messagebox").value,
-        "user" :  "pakt",
-        "date": date
+        "user" : "pakt",
+        "date": new Date()
     }
     socket.emit("message_send", messagebody)
 };
