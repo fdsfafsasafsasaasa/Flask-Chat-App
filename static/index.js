@@ -7,16 +7,16 @@ function sendmessage(){
     date = new Date()
     var messagebody = {
         "body": document.getElementById("messagebox").value,
-        "user" : "fuck",
-        "date": date.toLocaleDateString("%I:%M")
+        "user" :  document.getElementById("usernamebox").value,
+        "date": date
     }
-    console.log(messagebody)
     socket.emit("message_send", messagebody)
 };
 socket.on("message_recv", data => {
-    console.log(data);
     var message = document.createElement("div");
-    message.innerHTML = `<p><small>${data["date"]}</small><b>${data["user"]}:</b> ${data["body"]}</p>`
+    message.innerHTML = `<div class="message">${data["user"]}: ${data["body"]}<span></span></div>`
     document.getElementById("messages").appendChild(message)
-
+    var element = document.getElementById("messages");
+    var messageBody = document.querySelector('#messages');
+    $(document).scrollTop($(document).height()); 
 });
