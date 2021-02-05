@@ -8,8 +8,20 @@
     bottom : 0px;
     padding-top: 15px;
     width: 100%;
+    text-align: center;
 }
 
 #messages {
     padding-bottom: 200px;
+    text-align: center;
+}
+.messagebox *{ 
+    width:100%;
+}
+
+#messagesend {
+    float: right;   
+}
+#messagesend {
+    display: none;
 }

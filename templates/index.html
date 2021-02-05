@@ -16,13 +16,13 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="messagebox" id="messagecontainer">
-                <div id="messagecontainer2">
-                    <p>Message: <input type="text" id="messagebox"></input></p>
-                    <p>Username: <input type="text" id="usernamebox"></input></p>
-                    <p><button type="submit", onclick="sendmessage()" id="messagesend">Send Message</button></p>
-                </div>
-            </div>
         </div>
+            <div class="messagebox" id="messagecontainer">
+                <form onsubmit="sendmessage();return false" id="messagecontainer2">
+                    <input type="text" id="messagebox" placeholder="Enter Message" autofocus required></input>
+                    <button hidden=true ></button>
+                </form>
+            </div>
+
     </body>
 </html>
