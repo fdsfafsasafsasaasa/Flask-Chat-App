@@ -1,7 +1,7 @@
 #container {
     overflow : auto;
     margin: auto;
-    width: 50%; 
+    width: 100%; 
 }
 #messagecontainer {
     position : fixed;
