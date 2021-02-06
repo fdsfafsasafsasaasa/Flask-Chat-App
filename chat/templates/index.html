@@ -12,7 +12,7 @@
             <div class="messages" id="messages" style="overflow:auto">
                 {% for message in messages %}
                     <div class="message">
-                        {{message.user}}: {{message.body}}
+                        {{message[0]}}: {{message[1]}}
                     </div>
                 {% endfor %}
             </div>
@@ -20,7 +20,6 @@
             <div class="messagebox" id="messagecontainer">
                 <form onsubmit="sendmessage();return false" id="messagecontainer2">
                     <input type="text" id="messagebox" placeholder="Enter Message" autofocus required></input>
-                    <button hidden=true ></button>
                 </form>
             </div>
 
